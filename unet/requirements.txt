@@ -1,4 +1,0 @@
-tensorflow
-keras >= 1.0
-numpy
-scikit-image
