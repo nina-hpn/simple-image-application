@@ -42,6 +42,7 @@ class Trainer:
             config.RESBLOCK_UPDOWN,
             config.USE_NEW_ATTENTION_ORDER,
         ).to(self.device)
+
         self.path_train_color = os.path.join(config.PATH_COLOR, 'train.npy')
         self.path_train_grey = os.path.join(config.PATH_GREY, 'train.npy')
         self.path_validation_color = os.path.join(config.PATH_COLOR, 'validation.npy')
@@ -55,12 +56,15 @@ class Trainer:
         self.iteration_max = config.ITERATION_MAX
         self.EMA = EMA(0.9999)
         self.LR = config.LR
+
         if config.LOSS == 'L1':
             self.loss = nn.L1Loss()
         if config.LOSS == 'L2':
             self.loss = nn.MSELoss()
         else:
             print('Loss not implemented, setting the loss to L2 (default one)')
+            self.loss = nn.MSELoss()
+
         self.num_timesteps = config.TIMESTEPS
         self.validation_every = config.VALIDATION_EVERY
         self.ema_every = config.EMA_EVERY

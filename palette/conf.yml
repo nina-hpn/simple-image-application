@@ -1,5 +1,5 @@
 MODE : 1   # 1 Train, 2 Validation
-IMAGE_SIZE : [64,64]
+IMAGE_SIZE : [224,224]
 CHANNEL_X : 1
 CHANNEL_Y : 3
 TIMESTEPS : 2000

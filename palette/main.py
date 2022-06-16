@@ -2,8 +2,8 @@ from src.config import load_config
 from src.train import train
 import argparse
 
-def main():
 
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, default='conf.yml', help='path to the config.yaml file')
     args = parser.parse_args()
@@ -14,6 +14,7 @@ def main():
         train(config)
     else:
         print('Not implemented yet')
+
 
 if __name__ == "__main__":
     main()
