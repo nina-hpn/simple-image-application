@@ -1,12 +1,12 @@
-from config import load_config
-from train import train
 import argparse
 import numpy as np
 from matplotlib import pyplot as plt
 
+from src.config import load_config
+
 # Load config to use in helper
 parser = argparse.ArgumentParser()
-parser.add_argument('--config', type=str, default='conf.yml', help='path to the config.yaml file')
+parser.add_argument('--config', type=str, default='../conf.yml', help='path to the config.yaml file')
 args = parser.parse_args()
 config = load_config(args.config)
 

@@ -1,9 +1,9 @@
 import os
 from functools import partial
 
-from network import UNetModel, EMA
-from dataloader import gray_color_data
-from diffusion import GaussianDiffusion, extract
+from src.network import UNetModel, EMA
+from src.dataloader import gray_color_data
+from src.diffusion import GaussianDiffusion, extract
 
 import torch
 import torch.optim as optim
@@ -43,8 +43,8 @@ class Trainer:
             config.USE_NEW_ATTENTION_ORDER,
         ).to(self.device)
 
-        self.path_train_color = os.path.join(config.PATH_COLOR, 'train.npy')
-        self.path_train_grey = os.path.join(config.PATH_GREY, 'train.npy')
+        self.path_train_color = os.path.join(config.PATH_COLOR, 'resized_train.npy')
+        self.path_train_grey = os.path.join(config.PATH_GREY, 'resized_train.npy')
         self.path_validation_color = os.path.join(config.PATH_COLOR, 'validation.npy')
         self.path_validation_grey = os.path.join(config.PATH_GREY, 'validation.npy')
         dataset_train = gray_color_data(self.path_train_color, self.path_train_grey)

@@ -1,6 +1,7 @@
 import os
 from abc import abstractmethod
 import math
+import numpy as np
 
 import torch
 import torch.nn as nn
@@ -643,7 +644,6 @@ class UNetModel(nn.Module):
 
         hs = []
         emb = self.time_embed(timestep_embedding(timesteps, self.model_channels))
-
         h = z.type(torch.float32)
         for module in self.input_blocks:
             h = module(h, emb)
